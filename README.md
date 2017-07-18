@@ -1,5 +1,5 @@
 # whiteboard-solutions
-Programming interview questions and answers. Based on [this post](www.reddit.com/r/cscareerquestions/comments/20ahfq/heres_a_pretty_big_list_of_programming_interview/) by /u/dandr01d. 
+Programming interview questions and answers. Based on [this post](https://reddit.com/r/cscareerquestions/comments/20ahfq/heres_a_pretty_big_list_of_programming_interview) by /u/dandr01d. 
 
 ### Why are you doing this? 
 
