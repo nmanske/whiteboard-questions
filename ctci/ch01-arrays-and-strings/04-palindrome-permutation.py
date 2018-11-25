@@ -13,12 +13,12 @@ def is_palindrome_permutation(string):
     for c in string.replace(' ', '').lower():
         letters[c] = letters.get(c, 0) + 1
 
-    odd_count = 0
+    found_odd = False
     for v in letters.values():
         if v % 2 == 1:
-            odd_count += 1
-        if odd_count > 1:
-            return False
+            if found_odd == True:
+                return False
+            found_odd = True
 
     return True
 
