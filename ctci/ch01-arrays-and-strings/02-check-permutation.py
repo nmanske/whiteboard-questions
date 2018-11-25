@@ -32,16 +32,16 @@ def isPermutationCounter(s1, s2):
     return True
 
 class Test(unittest.TestCase):
-    dataT = (
+    dataT = [
         ('abcd', 'bacd'),
         ('3563476', '7334566'),
         ('wef34f', 'wffe34'),
-    )
-    dataF = (
+    ]
+    dataF = [
         ('abcd', 'd2cba'),
         ('2354', '1234'),
         ('dcw4f', 'dcw5f'),
-    )
+    ]
 
     def test_permutation_sort(self):
         for test_strings in self.dataT:

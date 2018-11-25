@@ -19,12 +19,12 @@ def urlify(string, length):
     return string
 
 class Test(unittest.TestCase):
-    data = (
+    data = [
         (list('much ado about nothing      '),
          22, list('much%20ado%20about%20nothing')),
         (list('Mr John Smith    '),
-         13, list('Mr%20John%20Smith'))
-    )
+         13, list('Mr%20John%20Smith')),
+    ]
 
     def test_urlify(self):
         for [test_string, length, expected] in self.data:

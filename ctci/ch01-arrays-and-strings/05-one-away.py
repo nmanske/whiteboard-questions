@@ -1,5 +1,5 @@
 '''There are three types of edits that can be performed on strings: insert a
-character, remove a character, or replace a character. Given two strings, write 
+character, remove a character, or replace a character. Given two strings, write
 a function to check if they are one edit (or zero edits) away.'''
 
 import unittest
@@ -18,7 +18,7 @@ def is_one_away(s1, s2):
     for c in s2:
         if letters.get(c, 0):
             letters[c] -= 1
-    
+
     difference = sum(v for v in letters.values())
 
     if difference == 0 or difference == 1:
@@ -27,7 +27,7 @@ def is_one_away(s1, s2):
     return False
 
 class Test(unittest.TestCase):
-    data = (
+    data = [
         ('pale', 'ple', True),
         ('pales', 'pale', True),
         ('pale', 'bale', True),
@@ -48,8 +48,8 @@ class Test(unittest.TestCase):
         ('pale', 'pkle', True),
         ('pkle', 'pable', False),
         ('pal', 'palks', False),
-        ('palks', 'pal', False)
-    )
+        ('palks', 'pal', False),
+    ]
 
     def test_one_away(self):
         for [test_s1, test_s2, expected] in self.data:

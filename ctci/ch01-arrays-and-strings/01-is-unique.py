@@ -14,10 +14,10 @@ def isUniqueDict(s):
 
     chars = {}
     for c in s:
-        if c in chars:
-            return False
-        else:
+        if c not in chars:
             chars[c] = 1
+        else:
+            return False
 
     return True
 
@@ -28,15 +28,15 @@ def isUniqueStr(s):
         return False
 
     s = ''.join(sorted(s))
-    for i in range(0, len(s) - 1):
+    for i in range(0, len(s)-1):
         if s[i] == s[i+1]:
             return False
 
     return True
 
 class Test(unittest.TestCase):
-    dataT = (('abcdefg'), ('8fna0('), (''))
-    dataF = (('2fjzn2'), ('hfa 843 ( ('))
+    dataT = [('abcdefg'), ('8fna0('), ('')]
+    dataF = [('2fjzn2'), ('hfa 843 ( (')]
 
     def test_unique_hash(self):
         for test_string in self.dataT:

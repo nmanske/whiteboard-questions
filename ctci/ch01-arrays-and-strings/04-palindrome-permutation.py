@@ -8,9 +8,10 @@ need to be limited to just dictionary words.'''
 import unittest
 
 def is_palindrome_permutation(string):
+    string = string.replace(' ', '').lower()
     letters = {}
 
-    for c in string.replace(' ', '').lower():
+    for c in string:
         letters[c] = letters.get(c, 0) + 1
 
     found_odd = False
@@ -24,7 +25,7 @@ def is_palindrome_permutation(string):
 
 
 class Test(unittest.TestCase):
-    data = (
+    data = [
         ('Tact Coa', True),
         ('jhsabckuj ahjsbckj', True),
         ('Able was I ere I saw Elba', True),
@@ -32,8 +33,8 @@ class Test(unittest.TestCase):
         ('Random Words', False),
         ('Not a Palindrome', False),
         ('no x in nixon', True),
-        ('azAZ', True)
-    )
+        ('azAZ', True),
+    ]
 
     def test_palindrome_permutation(self):
         for [test_string, expected] in self.data:
