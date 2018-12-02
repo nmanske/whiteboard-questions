@@ -1,10 +1,10 @@
 // Part 1
 
-const fs = require('fs')
+const { readFileSync } = require('fs')
 const path = require('path')
 
 function calculateChecksum(file) {
-  let ids = fs.readFileSync(file).toString().split('\n')
+  let ids = readFileSync(file).toString().split('\n')
   let total = [0, 0]
 
   for (let line of ids) {
@@ -17,8 +17,7 @@ function calculateChecksum(file) {
     if (Object.values(letters).includes(3)) total[1] += 1
   }
 
-  let checksum = total[0] * total[1]
-  return checksum
+  return total[0] * total[1]
 }
 
 let checksum = calculateChecksum(path.join(__dirname, 'day2.txt'))
@@ -26,3 +25,9 @@ console.log(checksum)
 
 // Part 2
 
+function commonLettersCorrectIDs(file) {
+
+}
+
+let commonLetters = commonLettersCorrectIDs(file)
+console.log(commonLetters)
