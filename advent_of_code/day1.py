@@ -1,3 +1,5 @@
+import os
+
 def sum_frequency_changes(file):
     sum = 0
     with open (file, 'r') as f:
@@ -5,4 +7,5 @@ def sum_frequency_changes(file):
             sum += int(line)
     return sum
 
-print(sum_frequency_changes('day1.txt'))
+dir_path = os.path.dirname(os.path.abspath(__file__))
+print(sum_frequency_changes(os.path.join(dir_path, 'day1.txt')))
