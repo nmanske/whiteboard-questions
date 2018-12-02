@@ -8,4 +8,5 @@ def sum_frequency_changes(file):
     return sum
 
 dir_path = os.path.dirname(os.path.abspath(__file__))
-print(sum_frequency_changes(os.path.join(dir_path, 'day1.txt')))
+frequency = sum_frequency_changes(os.path.join(dir_path, 'day1.txt'))
+print(frequency)

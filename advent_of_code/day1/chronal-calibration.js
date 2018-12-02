@@ -10,4 +10,5 @@ function sumFrequencyChanges(file) {
   return sum
 }
 
-console.log(sumFrequencyChanges(path.join(__dirname, '/day1.txt')))
+let frequency = sumFrequencyChanges(path.join(__dirname, 'day1.txt'))
+console.log(frequency)
