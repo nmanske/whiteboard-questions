@@ -4,10 +4,10 @@ How would you solve this problem if a temporary buffer is not allowed?'''
 from LinkedList import LinkedList
 
 def remove_dups(ll):
-    if ll.head is None:
+    if head is None:
         return
 
-    current = ll.head
+    current = head
     seen = set([current.value])
 
     while current.next:
@@ -17,11 +17,11 @@ def remove_dups(ll):
             seen.add(current.next.value)
             current = current.next
 
-def remove_dups_nobuffer(ll):
-    if ll.head is None:
+def remove_dups_nobuffer(head):
+    if head is None:
         return
 
-    current = ll.head
+    current = head
     while current:
         runner = current
         while runner.next:
@@ -34,11 +34,11 @@ def remove_dups_nobuffer(ll):
 # With buffer
 ll = LinkedList.generate(100, 0, 9)
 print('Before: ' + str(ll))
-remove_dups(ll)
+remove_dups(ll.head)
 print('After: ' + str(ll) + '\n')
 
 # No buffer
 ll = LinkedList.generate(100, 0, 9)
 print('Before: ' + str(ll))
-remove_dups(ll)
+remove_dups(ll.head)
 print('After: ' + str(ll))
