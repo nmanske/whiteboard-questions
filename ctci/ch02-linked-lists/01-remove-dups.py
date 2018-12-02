@@ -33,14 +33,12 @@ def remove_dups_nobuffer(ll):
 
 # With buffer
 ll = LinkedList.generate(100, 0, 9)
-ll.generate(100, 0, 9)
 print('Before: ' + str(ll))
 remove_dups(ll)
 print('After: ' + str(ll) + '\n')
 
 # No buffer
 ll = LinkedList.generate(100, 0, 9)
-ll.generate(100, 0, 9)
 print('Before: ' + str(ll))
 remove_dups(ll)
 print('After: ' + str(ll))
