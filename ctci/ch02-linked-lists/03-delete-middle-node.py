@@ -6,21 +6,13 @@ from random import randint
 from LinkedList import LinkedList
 
 def delete_middle_node(head):
-    if head is None:
-        return
+    if head is None or head.next is None:
+        return False
 
-    current = head
-    count = 0
-    while current:
-        count += 1
-        current = current.next
+    nextNode = head.next
+    head.next = nextNode.next
 
-    current = head
-    for i in range(count//2):
-        if i + 1 == count // 2:
-            current.next = current.next.next
-            return
-        current = current.next
+    return True
 
 size = randint(0, 10)
 ll = LinkedList.generate(size, 0, 9)
