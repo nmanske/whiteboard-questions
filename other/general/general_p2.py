@@ -6,7 +6,7 @@ import unittest
 
 def check_pair_sum(data):
     pairs = []
-    for i in range(0, len(data)-1):
+    for i in range(len(data)-1):
         if data[i] + data[i+1] == 10:
             pairs.append([data[i], data[i+1]])
     return pairs
@@ -23,4 +23,3 @@ class TestPairSum(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
-

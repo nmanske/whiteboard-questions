@@ -9,18 +9,6 @@ class Node:
     def __str__(self):
         return str(self.value)
 
-    def get_value(self):
-        return self.value
-
-    def get_next(self):
-        return self.next
-
-    def get_prev(self):
-        return self.prev
-
-    def set_next(self, node):
-        self.next = node
-
 class LinkedList:
     def __init__(self, head=None):
         self.head = head
@@ -29,7 +17,7 @@ class LinkedList:
         current = self.head
         while current:
             yield current
-            current = current.get_next()
+            current = current.next
 
     def __str__(self):
         values = [str(n) for n in self]
@@ -40,36 +28,37 @@ class LinkedList:
         count = 0
         while current:
             count += 1
-            current = current.get_next()
+            current = current.next
         return count
 
     def insert(self, value):
         node = Node(value)
-        node.set_next(self.head)
+        node.next = self.head
         self.head = node
 
     def search(self, value):
         current = self.head
         while current:
-            if current.get_value() == value:
+            if current.value == value:
                 return current
-            current = current.get_next()
+            current = current.next
         raise ValueError('Value not found in list')
 
     def delete(self, value):
         previous = None
         current = self.head
         while current:
-            if current.get_value() == value:
+            if current.value == value:
                 if previous is None:
-                    self.head = current.get_next()
+                    self.head = current.next
                 else:
-                    previous.set_next(current.get_next())
+                    previous.next = current.next
                 return True
             previous = current
-            current = current.get_next()
+            current = current.next
         raise ValueError('Value not found in list')
 
+    @classmethod
     def generate(cls, n, min, max):
         ll = cls()
         ll.head = None
