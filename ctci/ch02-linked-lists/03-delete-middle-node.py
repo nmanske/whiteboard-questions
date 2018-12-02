@@ -9,8 +9,7 @@ def delete_middle_node(head):
     if head is None or head.next is None:
         return False
 
-    nextNode = head.next
-    head.next = nextNode.next
+    head.next = head.next.next
 
     return True
 
