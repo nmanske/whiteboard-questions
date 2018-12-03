@@ -27,9 +27,8 @@ print(checksum)
 # Part 2
 
 def common_letters_correct_ids(file):
-    f = open(file, 'r')
-    lines = f.read().strip().splitlines()
-    f.close()
+    with open(file, 'r') as f:
+        lines = f.read().strip().splitlines()
 
     for i in lines:
         for j in lines:
