@@ -15,7 +15,7 @@ def get_sorted_logs(input_file, output_file):
 
     return sorted_logs
 
-def get_lazy_guard_info(logs):
+def get_sleep_data(logs):
     sleep_data = {}
 
     current_guard = None
@@ -35,6 +35,9 @@ def get_lazy_guard_info(logs):
             for m in range(sleep_start_minute, minute):
                 sleep_data[current_guard][m] = sleep_data[current_guard].get(m, 0) + 1
 
+    return sleep_data
+
+def highest_mins_asleep_info(sleep_data):
     laziest_guard = None
     laziest_minute = None
     laziest_total_mins_asleep = 0
@@ -53,12 +56,24 @@ def get_lazy_guard_info(logs):
 
     return laziest_guard, laziest_minute
 
+def most_frequent_minute_asleep_info(sleep_data):
+    return None, None
+
 dir_path = os.path.dirname(os.path.abspath(__file__))
 input_file = os.path.join(os.path.join(dir_path, 'day4.txt'))
 output_file = os.path.join(os.path.join(dir_path, 'day4_sorted.txt'))
 
 sorted_logs = get_sorted_logs(input_file, output_file)
-laziest_guard, laziest_minute = get_lazy_guard_info(sorted_logs)
+sleep_data = get_sleep_data(sorted_logs)
 
-print('Laziest guard: ' + str(laziest_guard))
-print('Laziest minute: ' + str(laziest_minute))
+# Part 1
+highest_total_mins_asleep_guard, most_frequent_minute = highest_mins_asleep_info(sleep_data)
+
+print('Guard with highest total minutes asleep: ' + str(highest_total_mins_asleep_guard))
+print('Most frequent minute: ' + str(most_frequent_minute) + '\n')
+
+# Part 2
+most_frequently_asleep_on_minute_guard, most_frequent_minute = most_frequent_minute_asleep_info(sleep_data)
+
+print('Guard with most frequent sleep on minute: ' + str(most_frequently_asleep_on_minute_guard))
+print('Most frequent minute: ' + str(most_frequent_minute))
