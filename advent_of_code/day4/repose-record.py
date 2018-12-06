@@ -38,26 +38,37 @@ def get_sleep_data(logs):
     return sleep_data
 
 def highest_mins_asleep_info(sleep_data):
-    laziest_guard = None
-    laziest_minute = None
-    laziest_total_mins_asleep = 0
+    highest_total_mins_asleep_guard = None
+    highest_total_mins_asleep = 0
+    most_frequent_minute = None
 
     for k1, v1 in sleep_data.items():
         total_mins_asleep = 0
         for k2, v2 in v1.items():
             total_mins_asleep += v2
-        if (total_mins_asleep > laziest_total_mins_asleep):
-            laziest_guard = k1
-            laziest_total_mins_asleep = total_mins_asleep
-            laziest_minute = 0
+        if (total_mins_asleep > highest_total_mins_asleep):
+            highest_total_mins_asleep_guard = k1
+            highest_total_mins_asleep = total_mins_asleep
+            most_frequent_minute = 0
             for k2, v2 in v1.items():
-                if v2 > laziest_minute:
-                    laziest_minute = k2
+                if v2 > most_frequent_minute:
+                    most_frequent_minute = k2
 
-    return laziest_guard, laziest_minute
+    return highest_total_mins_asleep_guard, most_frequent_minute
 
 def most_frequent_minute_asleep_info(sleep_data):
-    return None, None
+    most_frequent_minute_asleep_guard = None
+    most_frequent_minute = None
+    most_frequent_minute_value = 0
+
+    for k1, v1 in sleep_data.items():
+        for k2, v2 in v1.items():
+            if v2 > most_frequent_minute_value:
+                most_frequent_minute_asleep_guard = k1
+                most_frequent_minute = k2
+                most_frequent_minute_value = v2
+
+    return most_frequent_minute_asleep_guard, most_frequent_minute
 
 dir_path = os.path.dirname(os.path.abspath(__file__))
 input_file = os.path.join(os.path.join(dir_path, 'day4.txt'))
@@ -73,7 +84,7 @@ print('Guard with highest total minutes asleep: ' + str(highest_total_mins_aslee
 print('Most frequent minute: ' + str(most_frequent_minute) + '\n')
 
 # Part 2
-most_frequently_asleep_on_minute_guard, most_frequent_minute = most_frequent_minute_asleep_info(sleep_data)
+most_frequent_minute_asleep_guard, most_frequent_minute = most_frequent_minute_asleep_info(sleep_data)
 
-print('Guard with most frequent sleep on minute: ' + str(most_frequently_asleep_on_minute_guard))
+print('Guard with most frequent sleep on minute: ' + str(most_frequent_minute_asleep_guard))
 print('Most frequent minute: ' + str(most_frequent_minute))
