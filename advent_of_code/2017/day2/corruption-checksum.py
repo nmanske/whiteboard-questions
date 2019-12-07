@@ -29,7 +29,7 @@ dir_path = os.path.dirname(os.path.abspath(__file__))
 file = os.path.join(dir_path, 'day2.txt')
 
 sheet = []
-with open(file, 'r') as f:
+with open(file) as f:
     tsvin = csv.reader(f, delimiter='\t')
     for row in tsvin:
         sheet.append(list(map(int, row)))
