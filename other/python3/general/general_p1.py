@@ -3,9 +3,11 @@ Find the most frequent integer in an array
 '''
 
 import unittest
+import sys
 
 def check_mode(data):
     max_count = 0
+    max_value = -sys.maxint - 1
     for i in data:
         count = 0
         for j in data:
